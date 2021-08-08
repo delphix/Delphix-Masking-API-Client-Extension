@@ -1,87 +1,73 @@
-# Project Title
+# Description
 
-One Paragraph of project description goes here
+This chrome extension helps anyone consuming the API (Customers, Field, Support, Developers, etc. )
+in interacting easily with Masking API-Client.
 
-## Getting Started
+# Version
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+The current `1.X` version is `1.0.0`.
 
-### Prerequisites
+Please see the [Change log](CHANGELOG.md) for
+information on each version.
 
-What things you need to install the software and how to install them
+# Install
 
-```
-Give examples
-```
+To install this chrome extension follow the below steps:
 
-### Installing
+1. Download the new release zip file under the "release" menu option. Or you can directly download the extension zip
+file from [here](https://github.com/delphix/Delphix-Masking-API-Client-Extension/archive/refs/heads/master.zip) , and
+unzip on your laptop/computer.
+2. Go to [chrome://extensions/](chrome://extensions/) and check the box for Developer mode in the top right.
+![](./example/Enable-Developer-Mode.png)
+3. Click on "Load Unpacked" button and select your unzip folder and navigate to "extension/chrome" folder(You need to select the folder in
+which the manifest file exists).
+![](./example/Load-Extension.png)
+4. Once you will select the "extension/chrome" folder, the extension will be installed now.
+5. Click on "Extensions" icon on top right corner and pin the newly installed chrome extension to chrome tool bar.
+![](./example/Pin-Extension.png)
 
-A step by step series of examples that tell you how to get a development env running
+# Usage
 
-Say what the step will be
+Follow the below steps to setup the extension,
 
-```
-Give the example
-```
+1. Open your Masking API client page like http://<hostanme>/masking/api-client/ , if your page is already opened reload
+the page to reflect the extension.
+2. Click on installed extension icon, it will open the extension popup as displayed in the below screenshot.
+![](./example/Before-Login.png)
+3. Click on "Settings" button, it will open a popup page where you need to enter and save your default username and
+password for the API client login.
+![](./example/Settings.png)
+4. Once you will configure your username/passowrd for API login, extension is ready to use. Now you can enjoy the single
+click login and API extension filter options accordingly.
+![](./example/Filter.png)
 
-And repeat
+![](./example/After-Login.png)
 
-```
-until finished
-```
+# Contribute
 
-End with an example of getting some data out of the system or using it for a little demo
+1.  Fork the project.
+2.  Make your bug fix or new feature.
+3.  Add tests for your code.
+4.  Send a pull request.
 
-## Running the tests
+Contributions must be signed as `User Name <user@email.com>`. Make sure to [set up Git with user name and email address](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup). Bug fixes should branch from the current stable branch. New features should be based on the `master` branch.
 
-Explain how to run the automated tests for this system
+### Code of Conduct
 
-### Break down into end to end tests
+This project operates under the [Delphix Code of Conduct](https://delphix.github.io/code-of-conduct.html). By participating in this project you agree to abide by its terms.
 
-Explain what these tests test and why
+### Contributor Agreement
 
-```
-Give an example
-```
+All contributors are required to sign the Delphix Contributor agreement prior to contributing code to an open source repository. This process is handled automatically by [cla-assistant](https://cla-assistant.io/). Simply open a pull request and a bot will automatically check to see if you have signed the latest agreement. If not, you will be prompted to do so as part of the pull request process.
 
-### And coding style tests
+# Reporting Issues
 
-Explain what these tests test and why
+Issues should be reported in the GitHub repo's issue tab. Include a link to it.
 
-```
-Give an example
-```
+# Statement of Support
 
-## Deployment
+This software is provided as-is, without warranty of any kind or commercial support through Delphix. See the associated license for additional details. Questions, issues, feature requests, and contributions should be directed to the community as outlined in the [Delphix Community Guidelines](https://delphix.github.io/community-guidelines.html).
 
-Add additional notes about how to deploy this on a live system
+# License
 
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://github.com/delphix/.github/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Joe Smith** - *Initial work* - [Company](https://github.com/Company)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the XX License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+This is code is licensed under the Apache License 2.0. Full license is available [here](./LICENSE).

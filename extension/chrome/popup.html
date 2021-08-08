@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Masking API-Client Endpoints</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/multiple-select.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header-section">
+          <h4>Manage Endpoints</h4>
+          <button class="margin-left-10 btn btn-primary" id="login">Login</button>
+          <button class="display-none margin-left-10 btn btn-danger" id="logout">Logout</button>
+          <button class="margin-left-10 btn btn-info" id="go-to-setting">Settings</button>
+        </div>
+        <div id="inputDiv" class="header-section">
+          <select class="width-100" id="apiSelection" multiple></select>
+          <select class="display-none-imp" id="inputSelection"></select>
+        </div>
+        <div id="apiDiv" class="api-div">
+          <p id="status"></p>
+        </div>
+    </div>
+    <script src="scripts/jquery.min.js" type="text/javascript"></script>
+    <script src="scripts/multiple-select.js" type="text/javascript"></script>
+    <script src="scripts/extension.js" type="text/javascript"></script>
+</body>
+</html>
