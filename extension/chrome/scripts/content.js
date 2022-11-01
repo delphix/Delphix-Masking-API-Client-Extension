@@ -2,36 +2,31 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     console.log("something happening from the extension");
     var data = request.data || {};
     if (data.action == 'login') {
-        var auth_btn = $('#auth_container a')[0];
+        var auth_btn = document.getElementsByClassName('btn authorize unlocked')[0];
         auth_btn.click();
-        auth_btn = $('#swagger-ui-container div.api-popup-dialog div.auth_submit .auth_logout__button');
-        if (auth_btn.length != 0) {
+        var login_button = document.getElementsByClassName('btn modal-btn auth authorize button')[0];
+        if (typeof(login_button) == undefined) {
             if (data.force_logout) {
-                auth_btn.click(); //logout first
-            } else {
-                console.log('Already logged in. Doing nothing');
-                auth_btn = $('#swagger-ui-container div.api-popup-dialog .api-popup-cancel');
+                console.log("Logging out before re-logging in.");
                 auth_btn.click();
+            } else {
+                console.log('Already logged in.');
+                close_btn = document.getElementsByClassName('btn modal-btn auth btn-done button')[0];
+                close_btn.click();
                 sendResponse({
                     data: data,
                     success: true
                 });
                 return;
             }
-
         }
-        //var api_key_input = $('#swagger-ui-container > div.api-popup-dialog > div.api-popup-dialog-wrapper > div.api-popup-content > div > div > div > div.auth_inner > div > div > div > div > div:nth-child(3) > div:nth-child(3) > input');
         $(document).ready(function() {
             doLogin(data, sendResponse);
         });
 
     } else if (data.action == 'isLoggedIn') {
-        var auth_btn = $('#auth_container a')[0];
-        auth_btn.click();
-        auth_btn = $('#swagger-ui-container div.api-popup-dialog div.auth_submit .auth_logout__button');
-        var cancel_btn = $('#swagger-ui-container div.api-popup-dialog .api-popup-cancel');
-        cancel_btn.click();
-        if (auth_btn.length != 0) {
+        var logged_in_btn = document.getElementsByClassName('btn authorize locked')[0];
+        if (typeof(logged_in_btn) != undefined && logged_in_btn != null) {
             sendResponse({
                 data: {
                     'loggedin': true
@@ -48,11 +43,13 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
         });
 
     } else if (data.action == 'logout') {
-        var auth_btn = $('#auth_container a')[0];
-        auth_btn.click();
-        auth_btn = $('#swagger-ui-container div.api-popup-dialog div.auth_submit .auth_logout__button');
+        var auth_btn = document.getElementsByClassName('btn authorize locked')[0];
         if (auth_btn.length != 0) {
             auth_btn.click();
+            logout_button = document.getElementsByClassName('btn modal-btn auth button')[0];
+            logout_button.click();
+            close_button = document.getElementsByClassName('btn modal-btn auth btn-done button')[0];
+            close_button.click();
             sendResponse({
                 data: data,
                 success: true
@@ -69,7 +66,6 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
         input_elem.val(data.input);
         trigger_change_event(input_elem[0]);
     } else if (data.action == 'getApiEndpoints') {
-        //var resources = $('#resources li[class="resource"]');
         var resources = $('#resources li[class="resource"],#resources li[class="resource active"]');
         var endpoints = []
 
@@ -152,12 +148,11 @@ var doLogin = function(data, sendResponse) {
 
 
 var authSuccess = function(data) {
-    var api_key_input = $('#swagger-ui-container div.api-popup-dialog div.auth_inner input');
-    //auth_btn = $('#swagger-ui-container > div.api-popup-dialog > div.api-popup-dialog-wrapper > div.api-popup-content > div > div > div > div.auth_submit > button');
-    api_key_input.val(data.Authorization);
-    trigger_change_event(api_key_input[0]);
-    auth_btn = $('#swagger-ui-container div.api-popup-dialog div.auth_submit .auth_submit__button');
-    auth_btn.click();
-    console.log('Login action');
-
+    var api_key_input = document.getElementsByTagName('input')[0];
+    api_key_input.value = data.Authorization;
+    trigger_change_event(api_key_input);
+    var login_button = document.getElementsByClassName('btn modal-btn auth authorize button')[0];
+    login_button.click();
+    var close_button = document.getElementsByClassName('btn modal-btn auth btn-done button')[0];
+    close_button.click();
 }
