@@ -1,5 +1,5 @@
 {
-   "browser_action": {
+   "action": {
       "default_icon": "favicon-128.png",
       "default_popup": "popup.html",
       "default_title": "Manage Masking API Endpoints"
@@ -9,7 +9,9 @@
       "js": [ "scripts/content.js", "scripts/jquery.min.js", "scripts/utils.js" ],
       "matches": [ "*://*/masking/api-client/*" ]
    } ],
-   "content_security_policy": "script-src 'self' https://www.gstatic.com/; object-src 'self'",
+   "content_security_policy": {
+      "extension_pages": "script-src 'self'; object-src 'self'; script-src-elem 'self' 'unsafe-inline' https://music.yandex.ru/;"
+   },
    "description": "This extension helps in interacting with Masking API-Client",
    "homepage_url": "https://github.com/anilsrivastava1202/",
    "icons": {
@@ -19,7 +21,7 @@
       "32": "favicon-32x32.png",
       "96": "favicon-96x96.png"
    },
-   "manifest_version": 2,
+   "manifest_version": 3,
    "name": "Delphix Masking API-Client Extension",
    "options_page": "settings.html",
    "permissions": [ "activeTab", "storage" ],

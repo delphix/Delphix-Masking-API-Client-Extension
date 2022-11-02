@@ -5,10 +5,14 @@ in interacting easily with Masking API-Client.
 
 # Version
 
-The current `1.X` version is `1.0.0`.
+The current `2.X` version is `2.0.0`.
 
 Please see the [Change log](CHANGELOG.md) for
 information on each version.
+
+# Note:
+Please note that if you are using Masking Engine Version <= 6.0.16.0 then only v1.0.0
+will work. For Masking Engine > 6.0.16.0 versions please download and use v2.0.0
 
 # Install
 
