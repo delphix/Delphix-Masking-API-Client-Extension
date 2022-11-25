@@ -148,7 +148,7 @@ var doLogin = function(data, sendResponse) {
 
 
 var authSuccess = function(data) {
-    var api_key_input = document.getElementsByTagName('input')[0];
+    var api_key_input = document.querySelector('input[name="value"]');
     api_key_input.value = data.Authorization;
     trigger_change_event(api_key_input);
     var login_button = document.getElementsByClassName('btn modal-btn auth authorize button')[0];
